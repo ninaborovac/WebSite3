@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "LMS";
+
+    var db = Database.Open("StarterSite");
+    var users = db.QuerySingle("SELECT * FROM Student");
+    var ispiti = db.QuerySingle("SELECT * FROM Ispit");
+
+    var ime = "novo ime";
+    var prezime = "novo prezime";
+    
+
+
+
+    db.QuerySingle("INSERT INTO Ispit (naziv) VALUES (@0)", "Novi ispit");
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@Page.Title.</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<h3>We suggest the following:</h3>
+
+<div>
+    Test
+    @users.ime
+    @users.prezime
+    @ispiti.naziv
+  
+</div>
+<div>@users.ime</div>
+
+<table>
+    <tr>
+        <th>test1</th>
+        <th>test2</th>
+        <th>test3</th>
+    </tr>
+    <tr>
+        <td>one</td>
+        <td>two</td>
+        <td>three</td>
+    </tr>
+</table>
